@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# MovableImage React Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The MovableImage component is a React component that renders an image that can be moved, resized, and rotated. It uses the react-moveable library to implement these features.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To use the component, first install the react-moveable library:
+```
+npm install react-moveable
+```
+Then, import the MovableImage component and use it in your code:
+```
+import MovableImage from './MovableImage';
 
-### `npm start`
+function MyComponent() {
+  return (
+    <MovableImage src="path/to/image.jpg" alt="My Image" />
+  );
+}
+```
+You can also pass additional props to the component, such as style or className.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To use the MovableImage component in your project, you can import it and pass in the src and alt props for your image:
 
-### `npm test`
+```
+import React from "react";
+import MovableImage from "movable-image";
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function App() {
+  return (
+    <div>
+      <MovableImage src="/path/to/image.png" alt="An example image" />
+    </div>
+  );
+}
+```
 
-### `npm run build`
+You can customize the component by passing in additional props, such as width and height for the initial size of the image, or renderDirections to customize the moveable directions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+import React from "react";
+import MovableImage from "movable-image";
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+function App() {
+  return (
+    <div>
+      <MovableImage
+        src="/path/to/image.png"
+        alt="An example image"
+        width={300}
+        height={300}
+        renderDirections={["n", "e", "s", "w", "nw", "ne", "sw", "se"]}
+      />
+    </div>
+  );
+}
+export default App;
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Props
+|     Prop      |     Type      |  Default value  |  Description  |
+| ------------- | ------------- | --------------- | ------------- |
+| src | string | undefined | The path to the image file to display |
+| alt | string | undefined | The alt text for the image |
+| width | number | 200 | The initial width of the image |
+| height | number | 200 | The initial height of the image |
+| renderDirections | string[] | ["n", "e", "s", "w", "nw", "ne", "sw", "se"] | The directions in which the image can be moved using the moveable controls |
+| edge | boolean | true | Whether to show the edge around the image when it is selected for moving, resizing, or rotating |
+| zoom | number | 1 | The initial zoom level for the moveable controls |
+| origin | boolean | false | Whether to show the origin control (the circle in the center of the moveable controls) |
+| draggable | boolean | true | Whether the image can be dragged using the moveable controls |
+| resizable | boolean | true | Whether the image can be resized using the moveable controls |
+| rotatable | boolean | true | Whether the image can be rotated using the moveable controls |
+| onDrag | function | undefined | A callback function that will be called when the image is dragged using the moveable controls |
+| onResize | function | undefined | A callback function that will be called when the image is resized using the moveable controls |
+| onRotate | function | undefined | A callback function that will be called when the image is resized using the moveable control |
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
